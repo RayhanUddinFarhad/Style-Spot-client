@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import Home from './components/Home/Home/Home.jsx';
 import Collections from './components/pages/collections/collections.jsx';
+import ViewDetails from './components/pages/Details/ViewDetails.jsx';
 
 
 const router = createBrowserRouter([
@@ -28,6 +29,14 @@ const router = createBrowserRouter([
         path : "/collections",
         element : <Collections></Collections>
       
+      },
+
+
+      {
+
+        path : "/details/:id",
+        element : <ViewDetails></ViewDetails>,
+        loader : ({params}) => fetch (`http://localhost:3000/products/${params.id}`)
       }
     ]
   },

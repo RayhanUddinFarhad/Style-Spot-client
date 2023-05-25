@@ -44,7 +44,7 @@ const LatestProducts = () => {
 
               {
 
-                onSale && onSale.map(data => <Product data={data}></Product>)
+                onSale && onSale.map(data => <Product key={data._id} data={data}></Product>)
               }
 
 
@@ -56,7 +56,7 @@ const LatestProducts = () => {
 
               {
 
-                featured && featured.map(data => <Product data={data}></Product>)
+                featured && featured.map(data => <Product key={data._id} data={data}></Product>)
               }
 
 
@@ -68,7 +68,7 @@ const LatestProducts = () => {
 
               {
 
-                tranding && tranding.map(data => <Product data={data}></Product>)
+                tranding && tranding.map(data => <Product key={data._id} data={data}></Product>)
               }
 
 

@@ -11,9 +11,9 @@ const Collections = () => {
     const [tabIndex, setTabIndex] = useState(0);
 
 
-    const men = data.filter (data => data.category === 'men')
-    const women = data.filter (data => data.category === 'women')
-    const child = data.filter (data => data.category === 'child')
+    const men = data.filter(data => data.category === 'men')
+    const women = data.filter(data => data.category === 'women')
+    const child = data.filter(data => data.category === 'child')
 
 
     return (
@@ -21,50 +21,50 @@ const Collections = () => {
             I am a collection
 
             <Tabs selectedTabClassName='button-primary' selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
-      <TabList className= 'border-0 mx-auto flex justify-center'>
-        <Tab>Men</Tab>
-        <Tab>Women</Tab>
-        <Tab>Child</Tab>
-      </TabList>
-      <TabPanel>
+                <TabList className='border-0 mx-auto flex justify-center'>
+                    <Tab>Men</Tab>
+                    <Tab>Women</Tab>
+                    <Tab>Child</Tab>
+                </TabList>
+                <TabPanel>
 
-        <div className='grid lg:grid-cols-3 gap-5'>
-
-            
-        {
-
-men && men.map (data => <Product data={data}></Product> )
-}
-        </div>
+                    <div className='grid lg:grid-cols-3 gap-5'>
 
 
-      </TabPanel>
-      <TabPanel>
+                        {
+
+                            men && men.map(data => <Product key={data._id} data={data}></Product>)
+                        }
+                    </div>
+
+
+                </TabPanel>
+                <TabPanel>
 
 
 
-      <div className='grid lg:grid-cols-3 gap-5'>
-
-            
-{
-
-women && women.map (data => <Product data={data}></Product> )
-}
-</div>
-      </TabPanel>
-      <TabPanel>
+                    <div className='grid lg:grid-cols-3 gap-5'>
 
 
-      <div className='grid lg:grid-cols-3 gap-5'>
+                        {
 
-            
-{
+                            women && women.map(data => <Product key={data._id} data={data}></Product>)
+                        }
+                    </div>
+                </TabPanel>
+                <TabPanel>
 
-child && child.map (data => <Product data={data}></Product> )
-}
-</div>
-      </TabPanel>
-    </Tabs>
+
+                    <div className='grid lg:grid-cols-3 gap-5'>
+
+
+                        {
+
+                            child && child.map(data => <Product key={data._id} data={data}></Product>)
+                        }
+                    </div>
+                </TabPanel>
+            </Tabs>
         </div>
     );
 };
