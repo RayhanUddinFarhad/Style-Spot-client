@@ -7,6 +7,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Home from './components/Home/Home/Home.jsx';
+import Collections from './components/pages/collections/collections.jsx';
 
 
 const router = createBrowserRouter([
@@ -21,6 +22,12 @@ const router = createBrowserRouter([
 
         path : "/",
         element : <Home></Home>
+      },
+
+      {
+        path : "/collections",
+        element : <Collections></Collections>
+      
       }
     ]
   },

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
@@ -28,10 +29,10 @@ const Navbar = () => {
     <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
   </div>
   <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal px-1">
-      <li><a>Home</a></li>
+    <ul className="menu menu-horizontal px-1 space-x-10">
+     <Link to = "/">Home</Link>
+     <Link to = "/collections">collections</Link>
      
-      <li><a>Collection</a></li>
     </ul>
   </div>
   <div className="navbar-end">
