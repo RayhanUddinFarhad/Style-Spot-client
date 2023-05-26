@@ -12,9 +12,14 @@ function App() {
   return (
     <>
 
-    <Navbar></Navbar>
+    <div className='pb-32'>
 
-    <div className=''>
+    <Navbar ></Navbar>
+
+    </div>
+
+
+    <div className='lg:w-[1280px] mx-auto mb-20 '>
 
     <Outlet></Outlet>
 
