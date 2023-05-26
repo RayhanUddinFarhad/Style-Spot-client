@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Tab, TabList, Tabs, TabPanel } from 'react-tabs';
 import useProduct from '../../hooks/useProduct';
-import Product from '../../Home/Home/Latest/Product';
+import Product from '../../shared/Product';
 
 const Collections = () => {
 

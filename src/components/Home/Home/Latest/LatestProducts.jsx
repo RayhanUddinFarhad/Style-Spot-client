@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import cardcolor from '../../../../assets/images/cardcolor.png'
 import SectionTopbanner from '../../../shared/sectionTopbanner';
 import useProduct from '../../../hooks/useProduct';
-import Product from './Product';
+import Product from '../../../shared/Product';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 

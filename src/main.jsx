@@ -9,6 +9,7 @@ import {
 import Home from './components/Home/Home/Home.jsx';
 import Collections from './components/pages/collections/collections.jsx';
 import ViewDetails from './components/pages/Details/ViewDetails.jsx';
+import Cart from './components/pages/Cart.jsx';
 
 
 const router = createBrowserRouter([
@@ -37,6 +38,12 @@ const router = createBrowserRouter([
         path : "/details/:id",
         element : <ViewDetails></ViewDetails>,
         loader : ({params}) => fetch (`http://localhost:3000/products/${params.id}`)
+      }, 
+      {
+
+        path : "/cart",
+        element : <Cart></Cart>,
+        loader : () => fetch (`http://localhost:3000/products`)
       }
     ]
   },
