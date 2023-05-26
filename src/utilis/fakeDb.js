@@ -44,5 +44,24 @@ const addToDb = id => {
   const deleteShoppingCart = () => {
     localStorage.removeItem('shopping-cart')
   }
+
+
+  export const decreaseQuantity = id => {
+    const storedCart = localStorage.getItem('shopping-cart');
+    if (storedCart) {
+      const shoppingCart = JSON.parse(storedCart);
+      if (id in shoppingCart) {
+        if (shoppingCart[id] > 1) {
+          // Decrease the quantity by 1
+          shoppingCart[id] = shoppingCart[id] - 1;
+        } else {
+          // Remove the item from the cart
+          delete shoppingCart[id];
+        }
+        localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));
+      }
+    }
+  };
+  
   
   export { addToDb, getStoredCart, removeFromDb, deleteShoppingCart }

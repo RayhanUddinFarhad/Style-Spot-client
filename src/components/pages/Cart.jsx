@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getStoredCart } from '../../utilis/fakeDb';
+import { deleteShoppingCart, getStoredCart } from '../../utilis/fakeDb';
 import { useLoaderData } from 'react-router-dom';
 import CartItem from '../shared/CartItem';
 
@@ -34,6 +34,10 @@ const Cart = () => {
         newArray.push(getProduct)
       }
 
+
+      
+
+
       console.log(newArray);
 
 
@@ -51,9 +55,26 @@ const Cart = () => {
       total = total + product.price * product.quantity
     }
   }
+  const tax = total * 7 / 100;
+  const grandTotal = tax+total
 
 
+  
 
+  const handleQuantityChange = (productId, quantity) => {
+    const updatedCart = cart.map((product) => {
+      if (product._id === productId) {
+        product.quantity = quantity;
+        product.totalPrice = product.quantity * product.price;
+      }
+      return product;
+    });
+
+    setCart(updatedCart);
+  };
+
+
+  
 
 
 
@@ -89,14 +110,19 @@ const Cart = () => {
     <tbody>
     {
 
-      cart && cart.map (data => <CartItem key = {data._id} data = {data}></CartItem>)
+      cart && cart.map (data => <CartItem key = {data._id} data = {data} handleQuantityChange= {handleQuantityChange}></CartItem>)
     }
      
     </tbody>
     {/* foot */}
+
+
     
     
   </table>
+
+  <button onClick={deleteShoppingCart} className='button-primary '>Clear Cart</button>
+
 </div>
 
 
@@ -118,7 +144,17 @@ const Cart = () => {
 
               <h1 className='text-primary text-lg'>SubTotals</h1>
 
-              <h1 className='text-primary text-lg'>${total}</h1>
+              <h1 className='text-primary text-lg'>${total.toFixed(2)}</h1>
+
+
+
+            </div>
+
+            <div className='flex justify-around'>
+
+              <h1 className='text-primary text-lg'>Totals</h1>
+
+              <h1 className='text-primary text-lg'>${grandTotal.toFixed(2)}</h1>
 
 
 
