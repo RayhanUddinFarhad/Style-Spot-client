@@ -19,7 +19,7 @@ function App() {
     </div>
 
 
-    <div className='lg:w-[1280px] mx-auto mb-20 '>
+    <div className='lg:max-w-[1280px] mx-auto mb-20 '>
 
     <Outlet></Outlet>
 

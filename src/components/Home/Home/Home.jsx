@@ -3,6 +3,7 @@ import Banner from './Banner/Banner';
 import LatestProducts from './Latest/LatestProducts';
 import OrderOnline from './OrderOnline';
 import Trending from './Trending';
+import Promotions from './Promotions';
 
 const Home = () => {
     return (
@@ -12,6 +13,8 @@ const Home = () => {
             <OrderOnline></OrderOnline>
 
             <Trending></Trending>
+
+            <Promotions></Promotions>
 
 
             <LatestProducts></LatestProducts>

@@ -50,7 +50,7 @@ const Trending = () => {
 
               {
 
-                trending && trending.map(data => <Product key={data._id} data={data}></Product>)
+                trending && trending.slice(0,3).map(data => <Product key={data._id} data={data}></Product>)
               }
 
 
