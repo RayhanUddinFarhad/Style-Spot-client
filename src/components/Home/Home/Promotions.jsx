@@ -4,98 +4,74 @@ import img1 from '../../../assets/images/promotion1.png'
 
 import img2 from '../../../assets/images/promotion2.png'
 import Slider from "react-slick";
+import img3 from '../../../assets/images/promotion3.png'
 
 
 const Promotions = () => {
-
-    var settings = {
+    const settings = {
         dots: true,
-        infinite: false,
+        infinite: true,
         speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 4,
-        initialSlide: 0,
-        responsive: [
-          {
-            breakpoint: 1024,
-            settings: {
-              slidesToShow: 3,
-              slidesToScroll: 3,
-              infinite: true,
-              dots: true
-            }
-          },
-          {
-            breakpoint: 600,
-            settings: {
-              slidesToShow: 2,
-              slidesToScroll: 2,
-              initialSlide: 2
-            }
-          },
-          {
-            breakpoint: 480,
-            settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1
-            }
-          }
-        ]
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplaySpeed: 2000,
+
+        autoplay: true,
+
       };
+  
     return (
-        <div>
-            <SectionTopbanner heading={"Promotions"}></SectionTopbanner>
-
-            <div className='grid lg:grid-cols-5 '>
-
-                <div className='w-[420px] col-span-2 h-[270px] bg-[#FFF6FB] p-5 space-y-4 flex justify-center items-center'>
-                    <div>
-
-                    <h1 className='text-primary font-bold text-xl'>23% Off for all products</h1>
-                    <button className='border-b border-red-600 text-red-600  font-bold'>Shop Now</button>
-                    </div> 
-                    <img className='h-full' src= {img1} alt="" />
-
-
-
-
+      <div className=''>
+        <SectionTopbanner  heading="Promotions" />
+        <div >
+          <Slider    {...settings}>
+            <div className=''>
+              <div className="w-full h-[270px] bg-[#FFF6FB] p-5 flex justify-center items-center">
+                <div className="space-y-5 ">
+                  <h1 className="text-primary font-bold text-xl">
+                    23% Off for Man products
+                  </h1>
+                  <button className="border-b border-red-600 text-red-600 font-bold">
+                    Shop Now
+                  </button>
                 </div>
-
-
-                <div className='w-[420px] h-[270px] col-span-2 bg-[#EEEFFB] p-5 space-y-4 flex justify-center items-center'>
-                    <div>
-
-                    <h1 className='text-primary font-bold text-xl'>23% Off for all products</h1>
-                    <button className='border-b border-red-600 text-red-600  font-bold'>Shop Now</button>
-                    </div>
-                    <img className='h-full' src= {img2} alt="" />
-
-
-
-
-                </div>
-
-                <div className=' bg-[#FFF6FB] p-5 space-y-4 flex justify-center items-center col-span-'>
-                    <div>
-
-
-
-                    
-                    </div>
-
-
-
-
-                </div>
-
-
-               
-
-
-
+                <img className="h-full" src={img1} alt="" />
+              </div>
             </div>
+  
+            <div>
+              <div className="w-full h-[270px] bg-[#EEEFFB] p-5 flex justify-center items-center">
+                <div className="space-y-5">
+                  <h1 className="text-primary font-bold text-xl">
+                    23% Off for Ladies products
+                  </h1>
+                  <button className="border-b border-red-600 text-red-600 font-bold">
+                    View Collection
+                  </button>
+                </div>
+                <img className="h-full" src={img2} alt="" />
+              </div>
+            </div>
+  
+            <div>
+              <div className="w-full h-[270px] bg-[#EEEFFB] p-5 flex justify-center items-center">
+                <div className="space-y-5">
+                  <h1 className="text-primary font-bold text-xl">
+                    50% Off for Child products
+                  </h1>
+                  <button className="border-b border-red-600 text-red-600 font-bold">
+                    View Collection
+                  </button>
+                  
+                </div>
+                <img className="h-full" src={img3} alt="" />
+              </div>
+            </div>
+          </Slider>
+          
         </div>
+      </div>
     );
-};
-
-export default Promotions;
+  };
+  
+  export default Promotions;
