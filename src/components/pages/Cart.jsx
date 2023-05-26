@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getStoredCart } from '../../utilis/fakeDb';
 import { useLoaderData } from 'react-router-dom';
+import CartItem from '../shared/CartItem';
 
 const Cart = () => {
 
@@ -10,37 +11,37 @@ const Cart = () => {
 
 
 
-  useEffect (() =>  {
+  useEffect(() => {
 
 
-  const storedCart = getStoredCart()
+    const storedCart = getStoredCart()
 
-  let newArray = []
+    let newArray = []
 
 
-  let personTotal = 0
+    let personTotal = 0
 
-  for (const id in storedCart) {
+    for (const id in storedCart) {
 
-    const getProduct = products.find  (product => product._id === id)
+      const getProduct = products.find(product => product._id === id)
 
-    if (getProduct) {
+      if (getProduct) {
 
-      getProduct.quantity = storedCart[id]
-      personTotal = getProduct.quantity*getProduct.price;
-      getProduct.totalPrice = personTotal
+        getProduct.quantity = storedCart[id]
+        personTotal = getProduct.quantity * getProduct.price;
+        getProduct.totalPrice = personTotal
 
-      newArray.push(getProduct)
+        newArray.push(getProduct)
+      }
+
+      console.log(newArray);
+
+
+
+
     }
 
-    console.log(newArray);
-
-
-
-
-   }
-
-   setCart (newArray)
+    setCart(newArray)
   }, [])
 
 
@@ -54,9 +55,9 @@ const Cart = () => {
 
 
 
-  
-  
-  
+
+
+
 
 
 
@@ -64,7 +65,85 @@ const Cart = () => {
 
   return (
     <div>
-      
+
+
+      <div className='grid lg:grid-cols-3 gap-5'>
+
+        <div className='col-span-2'>
+
+
+
+
+        <div className="overflow-x-auto w-full">
+  <table className="table w-full">
+    {/* head */}
+    <thead>
+      <tr >
+        
+        <th className='text-primary text-lg'>Products</th>
+        <th className='text-primary text-lg'>Price</th>
+        <th  className='text-primary text-lg'>Quantity</th>
+        <th className='text-primary text-lg'>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+    {
+
+      cart && cart.map (data => <CartItem key = {data._id} data = {data}></CartItem>)
+    }
+     
+    </tbody>
+    {/* foot */}
+    
+    
+  </table>
+</div>
+
+
+
+        </div>
+
+
+        <div className='text-center shadow-lg p-5'>
+
+
+
+          <h1 className='text-primary text-lg font-bold'>Cart Totals</h1>
+
+
+          <div className='card space-y-10 font-bold'>
+
+
+            <div className='flex justify-around'>
+
+              <h1 className='text-primary text-lg'>SubTotals</h1>
+
+              <h1 className='text-primary text-lg'>${total}</h1>
+
+
+
+            </div>
+            <p>Shipping & taxes calculated at checkout</p>
+
+
+            <button className='button-primary'>Proceed To Checkout</button>
+
+
+
+
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+      </div>
+
     </div>
   );
 };
