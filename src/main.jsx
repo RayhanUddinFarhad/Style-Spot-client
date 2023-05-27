@@ -42,13 +42,13 @@ const router = createBrowserRouter([
 
         path : "/details/:id",
         element : <ViewDetails></ViewDetails>,
-        loader : ({params}) => fetch (`http://localhost:3000/products/${params.id}`)
+        loader : ({params}) => fetch (`https://dress-house-server.vercel.app/products/${params.id}`)
       }, 
       {
 
         path : "/cart",
         element : <Cart></Cart>,
-        loader : () => fetch (`http://localhost:3000/products`)
+        loader : () => fetch (`https://dress-house-server.vercel.app/products`)
       },
 
       {
@@ -66,7 +66,7 @@ const router = createBrowserRouter([
 
         path : "/checkOut",
         element : <PrivateRoutes><CheckOut></CheckOut></PrivateRoutes>,
-        loader : () => fetch (`http://localhost:3000/products`)
+        loader : () => fetch (`https://dress-house-server.vercel.app/products`)
 
       }
     ]

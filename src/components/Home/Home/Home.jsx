@@ -21,7 +21,6 @@ const Home = () => {
             <Featured></Featured>
 
 
-            {/* <LatestProducts></LatestProducts> */}
 
         </div>
     );

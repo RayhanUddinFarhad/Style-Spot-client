@@ -18,17 +18,32 @@ const Collections = () => {
 
     return (
         <div>
-            I am a collection
 
-            <Tabs selectedTabClassName='button-primary' selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
-                <TabList className='border-0 mx-auto flex justify-center'>
+            <Tabs selectedTabClassName='text-red-500 font-bold  ' selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
+                <TabList className='border-0 mx-auto flex justify-center mb-10 text-lg'>
+
+                    <Tab>All Products</Tab>
                     <Tab>Men</Tab>
                     <Tab>Women</Tab>
                     <Tab>Child</Tab>
                 </TabList>
+
                 <TabPanel>
 
-                    <div className='grid lg:grid-cols-3 gap-5'>
+                    <div className='grid lg:grid-cols-3 gap-5 '>
+
+
+                        {
+
+                            data && data.map(data => <Product key={data._id} data={data}></Product>)
+                        }
+                    </div>
+
+
+                </TabPanel>
+                <TabPanel>
+
+                    <div className='grid lg:grid-cols-3 gap-5 '>
 
 
                         {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import banner1 from '../.././../../assets/images/man3.png'
 import banner2 from './../../../../assets/images/family1.png'
-import banner3 from '../../../../assets/images/banner2.png'
+import banner3 from '../../../../assets/images/banner3.png'
 
 import banner4 from '../../../../assets/images/girl1.png'
 
@@ -52,7 +52,7 @@ const Banner = () => {
 
             <div>
 
-              <img className='h-full' src={banner2} alt="" />
+              <img className='object-contain' src={banner3} alt="" />
             </div>
 
 

@@ -1,5 +1,7 @@
 import React from 'react';
 import { addToDb, decreaseQuantity, removeFromDb } from '../../utilis/fakeDb';
+import { FaMinus, FaMinusCircle, FaPlus, FaPlusCircle } from 'react-icons/fa';
+
 
 const CartItem = ({ data, handleQuantityChange }) => {
   
@@ -35,10 +37,10 @@ const CartItem = ({ data, handleQuantityChange }) => {
       <td className='text-primary font-bold'>
         ${price}
       </td>
-      <td>
-        <button onClick={() => handleIncrease(_id)} className='btn'>+</button>
-        <button>{quantity}</button>
-        <button onClick={() => handleDecrease(_id)} className='btn'>-</button>
+      <td className='flex items-center space-x-2'>
+        <button onClick={() => handleIncrease(_id)} className=''><FaPlusCircle></FaPlusCircle></button>
+        <button className='font-bold'>{quantity}</button>
+        <button onClick={() => handleDecrease(_id)} className=''> <FaMinusCircle></FaMinusCircle></button>
       </td>
       <td className='text-primary font-bold'>${totalPrice.toFixed(2)}</td>
     </tr>

@@ -65,7 +65,7 @@ const LogIn = () => {
           </label>
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary">Login</button>
+          <button className="button-primary">Login</button>
         </div>
 
         <p>New to StyleSpot? <Link className='btn-link' to =  "/register">Register Now</Link></p>

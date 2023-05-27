@@ -25,6 +25,7 @@ const OrderOnline = () => {
           <Swiper
             slidesPerView={1}
             spaceBetween={10}
+            autoplay={true}
             pagination={{
               clickable: true,
             }}
@@ -32,6 +33,8 @@ const OrderOnline = () => {
               640: {
                 slidesPerView: 2,
                 spaceBetween: 20,
+                autoplay: true,
+
               },
               768: {
                 slidesPerView: 4,
@@ -54,20 +57,20 @@ const OrderOnline = () => {
             <SwiperSlide className='relative p-2'>
 
 
-              <img className='rounded-lg' src="https://img.freepik.com/free-photo/beautiful-smiling-young-blonde-woman-pointing-sunglasses-holding-shopping-bags-credit-card-pink-wall_496169-1506.jpg?w=1380&t=st=1684922053~exp=1684922653~hmac=25d9037f1575945d646a767cc11d24acb2bea24eadfa9c667af03012dfc8b796" alt="" />
-              <h1 className='absolute bottom-1/2 left-48 font-bold text-2xl text-white p-1 '>Women's Dress</h1>
+              <img className='rounded-lg' src="https://img.freepik.com/free-photo/pretty-young-stylish-woman-pink-luxury-dress-using-mobile-phone-holding-shopping-bags_285396-9673.jpg" alt="" />
+              <h1 className='absolute top-10 right-48 font-bold text-2xl text-white p-1 '>Ladies Dress</h1>
             </SwiperSlide>         <SwiperSlide className='relative p-2'>
 
 
               <img className='rounded-lg' src="https://media.istockphoto.com/id/671789492/photo/attractive-little-cute-girl-in-pink-dress-holds-purple-paper-bag.jpg?s=612x612&w=0&k=20&c=4CZ5MBNOCRI_hxEy_3VWTx2Khz-XJkn3-krkgsIqm0w=" alt="" />
-              <h1 className='absolute top-10 right-52 font-bold text-2xl text-white p-1 '>Child's Dress</h1>
+              <h1 className='absolute top-10 right-48 font-bold text-2xl text-white  '>Children's Dress</h1>
             </SwiperSlide>
 
             <SwiperSlide className='relative p-2'>
 
 
               <img className='rounded-lg' src="https://media.istockphoto.com/id/1193750118/photo/beautiful-asian-woman-carrying-colorful-bags-shopping-online-with-mobile-phone.jpg?b=1&s=170667a&w=0&k=20&c=J8VH-3bYGHRqot-2zsfkQ-V0BGK4f2pKNIkyQ4DNxhA=" alt="" />
-              <h1 className='absolute bottom-1/2  font-bold text-2xl text-gray-100 p-1 '>Others</h1>
+              <h1 className='absolute bottom-1/2  font-bold text-2xl text-gray-100 p-1 '>Other Dresses</h1>
             </SwiperSlide>
           </Swiper>
         </div>

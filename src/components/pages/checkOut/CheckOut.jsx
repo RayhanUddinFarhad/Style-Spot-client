@@ -5,6 +5,7 @@ import { key } from 'localforage';
 import CheckOutItem from './CheckOutItem';
 import CartRightSide from '../Cart/CartRightSide';
 import { AuthContext } from '../../Providers/AuthProvider';
+import { toast } from 'react-toastify';
 
 const CheckOut = () => {
 
@@ -13,6 +14,12 @@ const CheckOut = () => {
 
 
     const {user} = useContext(AuthContext)
+
+
+    const handleOrder = () => {
+
+        toast.success ("Your order has been  confirmed")
+     }
 
 
 
@@ -170,7 +177,7 @@ const CheckOut = () => {
                             <p>Shipping & taxes calculated at checkout</p>
 
 
-                            <Link to='/checkOut' className='button-primary'>Order Now</Link>
+                            <Link onSubmit={handleOrder} to='/checkOut' className='button-primary'>Order Now</Link>
 
 
 
