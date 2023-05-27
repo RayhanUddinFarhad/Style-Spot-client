@@ -4,8 +4,10 @@ import LatestProducts from './Latest/LatestProducts';
 import OrderOnline from './OrderOnline';
 import Trending from './Trending';
 import Promotions from './Promotions';
+import Featured from './Featured';
 
 const Home = () => {
+    
     return (
         <div className='space-y-20'>
 
@@ -16,8 +18,10 @@ const Home = () => {
 
             <Promotions></Promotions>
 
+            <Featured></Featured>
 
-            <LatestProducts></LatestProducts>
+
+            {/* <LatestProducts></LatestProducts> */}
 
         </div>
     );

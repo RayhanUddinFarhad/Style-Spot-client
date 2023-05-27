@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { deleteShoppingCart, getStoredCart } from '../../utilis/fakeDb';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import CartItem from '../shared/CartItem';
 
 const Cart = () => {
@@ -96,7 +96,7 @@ const Cart = () => {
 
 
         <div className="overflow-x-auto w-full">
-  <table className="table w-full">
+  <table className="lg:table table-compact w-full">
     {/* head */}
     <thead>
       <tr >
@@ -162,7 +162,7 @@ const Cart = () => {
             <p>Shipping & taxes calculated at checkout</p>
 
 
-            <button className='button-primary'>Proceed To Checkout</button>
+            <Link to = '/checkOut' className='button-primary'>Proceed To Checkout</Link>
 
 
 
