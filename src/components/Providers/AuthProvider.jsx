@@ -12,9 +12,12 @@ const AuthProvider = ({ children }) => {
 
 
     const [user, setUser] = useState('')
+    const [loader, setLoader] = useState(true)
 
 
     const registerUser = (emai, password) => {
+
+        setLoader (true)
 
 
         return createUserWithEmailAndPassword(auth, emai, password)
@@ -22,11 +25,13 @@ const AuthProvider = ({ children }) => {
 
 
     const logIn = (emai, password) => { 
+        setLoader (true)
 
 
         return signInWithEmailAndPassword (auth, emai, password)
     }
     const logOut = () => {
+        setLoader (true)
 
         return signOut(auth)
       }
@@ -43,6 +48,8 @@ const AuthProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged (auth, currentUser => { 
 
             setUser (currentUser)
+
+            setLoader(false)
 
         
 
@@ -68,7 +75,8 @@ const AuthProvider = ({ children }) => {
         user,
         registerUser,
         logOut,
-        logIn
+        logIn,
+        loader
      }
     return (
         <AuthContext.Provider value= {authInfo}>

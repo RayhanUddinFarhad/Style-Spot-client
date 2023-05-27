@@ -9,10 +9,12 @@ import {
 import Home from './components/Home/Home/Home.jsx';
 import Collections from './components/pages/collections/collections.jsx';
 import ViewDetails from './components/pages/Details/ViewDetails.jsx';
-import Cart from './components/pages/Cart.jsx';
+import Cart from './components/pages/Cart/Cart.jsx';
 import AuthProvider from './components/Providers/AuthProvider.jsx';
 import LogIn from './components/pages/LogIn/LogIn.jsx';
 import Register from './components/pages/register/Register.jsx';
+import CheckOut from './components/pages/checkOut/CheckOut.jsx';
+import PrivateRoutes from './components/routes/PrivateRoutes.jsx';
 
 
 const router = createBrowserRouter([
@@ -58,6 +60,14 @@ const router = createBrowserRouter([
       {
         path : "register",
         element : <Register></Register>
+      },
+
+      {
+
+        path : "/checkOut",
+        element : <PrivateRoutes><CheckOut></CheckOut></PrivateRoutes>,
+        loader : () => fetch (`http://localhost:3000/products`)
+
       }
     ]
   },

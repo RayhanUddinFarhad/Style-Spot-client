@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { AuthContext } from '../../Providers/AuthProvider';
 import { updateProfile } from 'firebase/auth';
@@ -8,7 +8,9 @@ import { updateProfile } from 'firebase/auth';
 const Register = () => {
 
   const {registerUser} = useContext(AuthContext)
-
+  const location = useLocation()
+  const navigate = useNavigate()
+  const from = location.state?.from?.pathname || '/';
 
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const onSubmit = data => {
@@ -23,6 +25,9 @@ const Register = () => {
 
         displayName : data.name
       })
+
+      navigate (from, { replace: true })
+
 
 
      })
