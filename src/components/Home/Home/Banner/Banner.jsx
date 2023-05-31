@@ -31,7 +31,7 @@ const Banner = () => {
 
 
   return (
-    <div className='px-5 '>
+    <div className='lg:px-5 '>
       <div className='h-full bg-[#F2F0FF]'   >
         <div>
           <div className='lg:flex  p-5 justify-around items-center'>

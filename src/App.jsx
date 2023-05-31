@@ -16,29 +16,29 @@ function App() {
   return (
     <>
 
-   <div className='overflow-x-hidden'>
+      <div className='overflow-x-hidden'>
 
-   <div className='pb-32'>
+        <div className='pb-32'>
 
-<Navbar ></Navbar>
+          <Navbar ></Navbar>
 
-</div>
-
-
-<div className='lg:max-w-[1280px] mx-auto mb-20 '>
-
-<Outlet></Outlet>
+        </div>
 
 
+        <div className='lg:max-w-[1280px] mx-auto mb-20 md:min-h-[calc(100vh-341px)] '>
+
+          <Outlet></Outlet>
 
 
-</div>
 
-<Footer></Footer>
 
-<ToastContainer></ToastContainer>
- 
-   </div>
+        </div>
+
+        <Footer></Footer>
+
+        <ToastContainer></ToastContainer>
+
+      </div>
     </>
   )
 }

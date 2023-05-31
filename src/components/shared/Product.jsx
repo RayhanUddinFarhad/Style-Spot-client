@@ -14,7 +14,7 @@ const Product = ({ data }) => {
 
     <div className=''>
       <Link to={`/details/${data._id}`}  data-aos="fade-up" data-aos-duration="1000"
-        className="card w-96 bg-base-100 shadow h-full hover:scale-125">
+        className="card lg:w-96 w-72 mx-auto  bg-base-100 shadow lg:h-full hover:scale-125">
         <figure><img className='w-96 h-64 object-contain transform transition duration-500 hover:scale-105' src={data.image} /></figure>
         <div className="card-body">
           <h2 className="card-title">{data.name}</h2>
