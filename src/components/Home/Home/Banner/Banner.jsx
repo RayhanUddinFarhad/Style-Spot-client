@@ -11,30 +11,23 @@ import bannerbg from '../../../../assets/images/bannerbg.png'
 
 const Banner = () => {
 
-  const [category, setCategory] = useState([])
+  // const [category, setCategory] = useState([])
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-
-
-  };
+  // const settings = {
+  //   dots: true,
+  //   infinite: true,
+  //   speed: 500,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  //   autoplay: true,
 
 
+  // };
 
 
-  useEffect(() => {
 
-    fetch(`http://localhost:3000/category`)
-      .then(res => res.json())
-      .then(data => setCategory(data))
-  }, [])
 
-  console.log(category)
+  
 
 
   return (

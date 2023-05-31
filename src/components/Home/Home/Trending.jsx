@@ -11,11 +11,12 @@ import { FcFlashOn } from "react-icons/fc";
 import useProduct from '../../hooks/useProduct';
 import Product from '../../shared/Product';
 import { Link } from 'react-router-dom';
+import Loader from '../../../animation/Loader';
 
 
 const Trending = () => {
 
-    const [data] = useProduct()
+    const [data, loader] = useProduct()
 
 
     const trending = data.filter(data => data.onTrending === true)
@@ -42,6 +43,11 @@ const Trending = () => {
 
 
             </div>
+
+            {
+
+loader && <Loader></Loader>
+}
 
 
 

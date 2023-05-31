@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { Tab, TabList, Tabs, TabPanel } from 'react-tabs';
 import useProduct from '../../hooks/useProduct';
 import Product from '../../shared/Product';
+import Loader from '../../../animation/Loader';
 
 const Collections = () => {
 
 
 
-    const [data] = useProduct()
+    const [data, loader] = useProduct()
     const [tabIndex, setTabIndex] = useState(0);
 
 
@@ -29,6 +30,10 @@ const Collections = () => {
                 </TabList>
 
                 <TabPanel>
+                    {
+
+                        loader && <Loader></Loader>
+                    }
 
                     <div className='grid lg:grid-cols-3 gap-5 '>
 
@@ -43,6 +48,11 @@ const Collections = () => {
                 </TabPanel>
                 <TabPanel>
 
+                    {
+
+                        loader && <Loader></Loader>
+                    }
+
                     <div className='grid lg:grid-cols-3 gap-5 '>
 
 
@@ -55,6 +65,10 @@ const Collections = () => {
 
                 </TabPanel>
                 <TabPanel>
+                    {
+
+                        loader && <Loader></Loader>
+                    }
 
 
 
@@ -68,6 +82,10 @@ const Collections = () => {
                     </div>
                 </TabPanel>
                 <TabPanel>
+                    {
+
+                        loader && <Loader></Loader>
+                    }
 
 
                     <div className='grid lg:grid-cols-3 gap-5'>

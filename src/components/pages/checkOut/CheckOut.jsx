@@ -18,7 +18,7 @@ const CheckOut = () => {
 
     const handleOrder = () => {
 
-        toast.success ("Your order has been  confirmed")
+        toast ("Your order has been  confirmed")
      }
 
 
@@ -177,7 +177,7 @@ const CheckOut = () => {
                             <p>Shipping & taxes calculated at checkout</p>
 
 
-                            <Link onSubmit={handleOrder} to='/checkOut' className='button-primary'>Order Now</Link>
+                            <Link onSubmit={handleOrder}  className='button-primary'>Order Now</Link>
 
 
 

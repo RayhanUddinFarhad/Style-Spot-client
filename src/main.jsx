@@ -15,6 +15,16 @@ import LogIn from './components/pages/LogIn/LogIn.jsx';
 import Register from './components/pages/register/Register.jsx';
 import CheckOut from './components/pages/checkOut/CheckOut.jsx';
 import PrivateRoutes from './components/routes/PrivateRoutes.jsx';
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+
+const queryClient = new QueryClient()
+
 
 
 const router = createBrowserRouter([
@@ -75,7 +85,16 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <AuthProvider>    <RouterProvider router={router} />
+
+
+    <AuthProvider>   
+
+    <QueryClientProvider client={queryClient}>
+    <RouterProvider router={router} />
+
+    </QueryClientProvider>
+      
+      
 </AuthProvider>
   </React.StrictMode>,
 )

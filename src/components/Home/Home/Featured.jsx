@@ -4,9 +4,10 @@ import { FcFlashOn } from 'react-icons/fc';
 import { Link } from 'react-router-dom';
 import Product from '../../shared/Product';
 import { FaArrowRight } from 'react-icons/fa';
+import Loader from '../../../animation/Loader';
 
 const Featured = () => {
-    const [data] = useProduct()
+    const [data, loader] = useProduct()
 
 
     const featured = data.filter(data => data.featured === true)
@@ -33,6 +34,13 @@ const Featured = () => {
 
 
             </div>
+
+            {
+
+                loader && <Loader></Loader>
+            }
+
+            
 
 
 

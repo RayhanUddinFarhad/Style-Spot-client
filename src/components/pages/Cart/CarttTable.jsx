@@ -2,7 +2,19 @@ import React from 'react';
 import { deleteShoppingCart } from '../../../utilis/fakeDb';
 import CartItem from '../../shared/CartItem';
 
-const CarttTable = ({ cart, handleQuantityChange }) => {
+const CarttTable = ({ cart, handleQuantityChange, refetch }) => {
+
+
+
+
+
+
+    const handleDelete = () => {
+
+
+        deleteShoppingCart  ()
+        refetch()
+    }
     return (
         <div>
 
@@ -21,6 +33,7 @@ const CarttTable = ({ cart, handleQuantityChange }) => {
                                 <th className='text-primary text-lg'>Price</th>
                                 <th className='text-primary text-lg'>Quantity</th>
                                 <th className='text-primary text-lg'>Total</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -37,7 +50,7 @@ const CarttTable = ({ cart, handleQuantityChange }) => {
 
                     </table>
 
-                    <button onClick={deleteShoppingCart} className='button-primary '>Clear Cart</button>
+                    <button onClick={handleDelete} className='button-primary '>Clear Cart</button>
 
                 </div>
 

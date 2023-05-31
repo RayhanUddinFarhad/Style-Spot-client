@@ -4,15 +4,25 @@ const useProduct = () => {
 
 
     const [data , setData] = useState([])
+    const [loader, setLoader] = useState  (false)
     useEffect (() => {
+
+        setLoader (true)
 
         fetch (`https://dress-house-server.vercel.app/products`)
         .then (res => res.json())
-        .then (data => setData (data))
+        .then (data => {setData (data)
+
+            setLoader (false)
+
+            
+        
+        
+        })
 
     }, [])
    
-    return [data]
+    return [data, loader]
 };
 
 export default useProduct;

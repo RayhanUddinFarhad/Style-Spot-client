@@ -4,51 +4,56 @@ import { Link, useLoaderData } from 'react-router-dom';
 import CartItem from '../../shared/CartItem';
 import CarttTable from './CarttTable';
 import CartRightSide from './CartRightSide';
+import { FaArrowRight } from 'react-icons/fa';
+import useCart from '../../hooks/useCart';
 
 const Cart = () => {
 
 
-  const [cart, setCart] = useState([])
+  // const [cart, setCart] = useState([])
+
+  const [cart, refetch] = useCart()
   const products = useLoaderData()
+  console.log(cart);
 
 
 
-  useEffect(() => {
+  // useEffect(() => {
 
 
-    const storedCart = getStoredCart()
+  //   const storedCart = getStoredCart()
 
-    let newArray = []
-
-
-    let personTotal = 0
-
-    for (const id in storedCart) {
-
-      const getProduct = products.find(product => product._id === id)
-
-      if (getProduct) {
-
-        getProduct.quantity = storedCart[id]
-        personTotal = getProduct.quantity * getProduct.price;
-        getProduct.totalPrice = personTotal
-
-        newArray.push(getProduct)
-      }
+  //   let newArray = []
 
 
-      
+  //   let personTotal = 0
 
+  //   for (const id in storedCart) {
 
-      console.log(newArray);
+  //     const getProduct = products.find(product => product._id === id)
+
+  //     if (getProduct) {
+
+  //       getProduct.quantity = storedCart[id]
+  //       personTotal = getProduct.quantity * getProduct.price;
+  //       getProduct.totalPrice = personTotal
+
+  //       newArray.push(getProduct)
+  //     }
 
 
 
 
-    }
 
-    setCart(newArray)
-  }, [])
+  //     console.log(newArray);
+
+
+
+
+  //   }
+
+  //   setCart(newArray)
+  // }, [])
 
 
   let total = 0
@@ -58,10 +63,10 @@ const Cart = () => {
     }
   }
   const tax = total * 7 / 100;
-   const grandTotal = tax+total
+  const grandTotal = tax + total
 
 
-  
+
 
   const handleQuantityChange = (productId, quantity) => {
     const updatedCart = cart.map((product) => {
@@ -72,12 +77,12 @@ const Cart = () => {
       return product;
     });
 
-    setCart(updatedCart);
+   refetch (updatedCart)
   };
 
 
-  
 
+console.log(cart);
 
 
 
@@ -90,25 +95,22 @@ const Cart = () => {
     <div>
 
 
-      <div className='grid lg:grid-cols-3 gap-5'>
+      {cart.length > 0 ? (
+        <div className="grid lg:grid-cols-3 gap-5">
+          <div className="col-span-2">
+            <CarttTable cart={cart} handleQuantityChange={handleQuantityChange} refetch  = {refetch}/>
+          </div>
+          <CartRightSide total={total} grandTotal={grandTotal} />
+        </div>
+      ) : (
+        <>
 
-       <div className='col-span-2'>
+          <h1 className='text-4xl font-bold text-red-500 my-5'>No Data available Here. Please Add Cart your product </h1>
+          <button><Link to="/collections" className='button-primary flex items-center'>Continue Shopping <FaArrowRight className='ml-5'></FaArrowRight></Link>
+          </button>
+        </>
 
-
-        <CarttTable cart = {cart} handleQuantityChange = {handleQuantityChange}></CarttTable>
-       </div>
-
-
-       <CartRightSide total = {total} grandTotal = {grandTotal}></CartRightSide>
-
-
-
-
-
-
-
-
-      </div>
+      )}
 
     </div>
   );
