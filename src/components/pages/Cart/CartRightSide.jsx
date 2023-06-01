@@ -1,7 +1,17 @@
+import axios from 'axios';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
 const CartRightSide = ({ total, grandTotal }) => {
+
+
+  
+    
+
+
+
+
+
   return (
     <div>
 
@@ -38,7 +48,7 @@ const CartRightSide = ({ total, grandTotal }) => {
           <p>Shipping & taxes calculated at checkout</p>
 
 
-          <Link to='/checkOut' className='button-primary'>Proceed To Checkout</Link>
+          <Link  to='/checkOut' className='button-primary'>Proceed To Checkout</Link>
 
 
 

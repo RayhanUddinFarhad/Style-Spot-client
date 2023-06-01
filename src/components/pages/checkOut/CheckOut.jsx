@@ -1,68 +1,94 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
-import { getStoredCart } from '../../../utilis/fakeDb';
+import React, { useContext, useEffect, useRef, useState } from 'react';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
+import { deleteShoppingCart, getStoredCart } from '../../../utilis/fakeDb';
 import { key } from 'localforage';
 import CheckOutItem from './CheckOutItem';
 import CartRightSide from '../Cart/CartRightSide';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { toast } from 'react-toastify';
+import axios from 'axios';
+import { useForm } from 'react-hook-form';
+import useCart from '../../hooks/useCart';
 
 const CheckOut = () => {
 
-    const [cart, setCart] = useState([])
-    const products = useLoaderData()
-
-
-    const {user} = useContext(AuthContext)
-
-
-    const handleOrder = () => {
-
-        toast ("Your order has been  confirmed")
-     }
+    const { register, handleSubmit, watch,   formState: { errors } } = useForm();
+    const [value, setValue] = useState(null)
+    const navigate = useNavigate()
+    const [cart, refetch] = useCart()
 
 
 
-    useEffect(() => {
+    const onSubmit = data => {
+
+        
+        setValue(data);
+        
+        
+    };
+
+    console.log(value);
+  
 
 
-        const storedCart = getStoredCart()
-
-        let newArray = []
-
-
-        let personTotal = 0
-
-        for (const id in storedCart) {
-
-            const getProduct = products.find(product => product._id === id)
-
-            if (getProduct) {
-
-                getProduct.quantity = storedCart[id]
-                personTotal = getProduct.quantity * getProduct.price;
-                getProduct.totalPrice = personTotal
-
-                newArray.push(getProduct)
-            }
+    const { user } = useContext(AuthContext)
 
 
 
 
 
-            console.log(newArray);
+    const handleCartPost = () => {
 
 
+        const sendingData = {
 
-
+            cart, value, email : value.email,
         }
 
-        setCart(newArray)
-    }, [])
-    console.log(cart);
+       if (!value) {
+
+        toast (' Pleae enter field your address')
+       }
+      else {
+
+
+        fetch (`http://localhost:3000/carts/`, {
+
+        method : 'POST',
+
+        headers : { 'Content-Type': 'application/json' },
+
+        body : JSON.stringify(sendingData)
 
 
 
+
+
+    })
+    .then (res => res.json())
+    .then (data => {console.log (data)
+
+        if (data.insertedId) {
+
+            deleteShoppingCart()
+            refetch ()
+
+            navigate (`/orderDetails`)
+
+            
+        }
+    
+    
+    })
+
+      }
+
+
+       
+       }
+
+
+   
     let total = 0
     if (cart.length > 0) {
         for (const product of cart) {
@@ -75,65 +101,66 @@ const CheckOut = () => {
 
 
 
+
     return (
-        <div>
+        <div >
             <div className='grid lg:grid-cols-3 mx-2'>
 
 
-                    <form className='col-span-2'>
+                <form onBlur={handleSubmit(onSubmit)}  className='col-span-2'>
 
 
-                        <div className="form-control w-full max-w-lg">
-                            <label className="label">
-                                <span className="label-text">Name</span>
-                            </label>
-                            <input disabled defaultValue={user?.displayName} type="text" placeholder="Name" className="input input-bordered w-full " />
+                    <div className="form-control w-full max-w-lg">
+                        <label className="label">
+                            <span className="label-text">Name</span>
+                        </label>
+                        <input {...register("name", watch)}  defaultValue={user?.displayName} type="text" placeholder="Name" className="input input-bordered w-full " />
 
-                        </div>
+                    </div>
 
-                        <div className="form-control w-full max-w-lg">
-                            <label className="label">
-                                <span className="label-text">House No</span>
-                            </label>
-                            <input type="text" placeholder="Address" className="input input-bordered w-full max-w-lg" />
+                    <div className="form-control w-full max-w-lg">
+                        <label className="label">
+                            <span className="label-text">House No</span>
+                        </label>
+                        <input {...register("House No")} type="text" placeholder="Address" className="input input-bordered w-full max-w-lg" />
 
-                        </div>
-                        <div className="form-control w-full max-w-lg">
-                            <label className="label">
-                                <span className="label-text">Street</span>
-                            </label>
-                            <input type="text" placeholder="Street" className="input input-bordered w-full max-w-lg" />
+                    </div>
+                    <div className="form-control w-full max-w-lg">
+                        <label className="label">
+                            <span className="label-text">Street</span>
+                        </label>
+                        <input  {...register("street")} type="text" placeholder="Street" className="input input-bordered w-full max-w-lg" />
 
-                        </div>
-                        <div className="form-control w-full max-w-lg">
-                            <label className="label">
-                                <span className="label-text">Address</span>
-                            </label>
-                            <input type="text" placeholder="Address" className="input input-bordered w-full max-w-lg" />
+                    </div>
+                    <div className="form-control w-full max-w-lg">
+                        <label className="label">
+                            <span className="label-text">Address</span>
+                        </label>
+                        <input {...register("address")} type="text" placeholder="Address" required className="input input-bordered w-full max-w-lg" />
 
-                        </div>
-                        <div className="form-control w-full max-w-lg">
-                            <label className="label">
-                                <span className="label-text">ZIP  code</span>
-                            </label>
-                            <input type="text" placeholder="ZIP" className="input input-bordered w-full max-w-lg" />
+                    </div>
+                    <div className="form-control w-full max-w-lg">
+                        <label className="label">
+                            <span className="label-text">ZIP  code</span>
+                        </label>
+                        <input {...register("Zip")} type="text" placeholder="ZIP" className="input input-bordered w-full max-w-lg" />
 
-                        </div>
-                        <div className="form-control w-full max-w-lg">
-                            <label className="label">
-                                <span className="label-text">Phone</span>
-                            </label>
-                            <input type="text" placeholder="Phone" className="input input-bordered w-full max-w-lg" />
+                    </div>
+                    <div className="form-control w-full max-w-lg">
+                        <label className="label">
+                            <span className="label-text">Phone</span>
+                        </label>
+                        <input {...register("phone")} type="text" placeholder="Phone" required className="input input-bordered w-full max-w-lg" />
 
-                        </div>
-                        <div className="form-control w-full max-w-lg">
-                            <label className="label">
-                                <span className="label-text">Email</span>
-                            </label>
-                            <input defaultValue={user?.email}  disabled type="text" placeholder="Email" className="input input-bordered w-full max-w-lg" />
+                    </div>
+                    <div className="form-control w-full max-w-lg">
+                        <label className="label">
+                            <span className="label-text">Email</span>
+                        </label>
+                        <input  {...register("email")} value={user?.email}   type="text" placeholder="Email" className="input input-bordered w-full max-w-lg" />
 
-                        </div>
-                    </form>
+                    </div>
+                </form>
 
 
                 <div>
@@ -177,7 +204,7 @@ const CheckOut = () => {
                             <p>Shipping & taxes calculated at checkout</p>
 
 
-                            <Link onSubmit={handleOrder}  className='button-primary'>Order Now</Link>
+                            <button onClick={handleCartPost}  className={`button-primary`}>Order Now</button>
 
 
 

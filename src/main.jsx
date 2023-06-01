@@ -22,6 +22,8 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import OrderDetails from './components/pages/checkOut/OrderDetails.jsx';
+import UserOrder from './components/pages/UserDetails/UserOrder.jsx';
 
 const queryClient = new QueryClient()
 
@@ -78,6 +80,20 @@ const router = createBrowserRouter([
         element : <PrivateRoutes><CheckOut></CheckOut></PrivateRoutes>,
         loader : () => fetch (`https://dress-house-server.vercel.app/products`)
 
+      },
+
+
+      {
+
+        path : "/orderDetails",
+        element : <OrderDetails></OrderDetails>
+      },
+
+
+      {
+
+        path : "/userOrder",
+        element : <PrivateRoutes><UserOrder></UserOrder></PrivateRoutes>
       }
     ]
   },
