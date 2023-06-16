@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
+import { FaGoogle } from 'react-icons/fa';
+import GoogleLogIn from './GoogleLogIn';
 
 const LogIn = () => {
 
@@ -67,6 +69,12 @@ const LogIn = () => {
         <div className="form-control mt-6">
           <button className="button-primary">Login</button>
         </div>
+
+        <GoogleLogIn></GoogleLogIn>
+
+        
+
+        
 
         <p>New to StyleSpot? <Link className='btn-link' to =  "/register">Register Now</Link></p>
       </form>

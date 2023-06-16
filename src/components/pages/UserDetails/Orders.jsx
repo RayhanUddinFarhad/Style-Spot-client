@@ -4,17 +4,22 @@ import OrderCart from './OrderCart';
 
 const Orders = ({data}) => {
 
-    console.log(data);
+    console.log(data.body.cart);
     return (
-        <div>
+        <>
+
+
+
+
+
 
 
             {
-                data && data.body.cart.map (cart => <OrderCart data = {cart}></OrderCart>)
+                data?.body.cart && data?.body?.cart.map ((cart, index) => <OrderCart index = {index } data = {cart}></OrderCart>)
 
             }
             
-        </div>
+        </>
     );
 };
 

@@ -38,9 +38,9 @@ const ViewDetails = () => {
 
   return (
     <div>
-      <div className="lg:flex items-center lg:space-x-10 p-10 ">
+      <div className="lg:flex items-center lg:space-x-10 p-10 my-20">
         <div className="lg:w-[50%]">
-          <img src={product.image} alt="" />
+          <img className='object-contain h-96' src={product.image} alt="" />
 
         </div>
 

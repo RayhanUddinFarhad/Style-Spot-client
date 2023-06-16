@@ -1,6 +1,7 @@
 import React from 'react';
 import { deleteShoppingCart } from '../../../utilis/fakeDb';
 import CartItem from '../../shared/CartItem';
+import Swal from 'sweetalert2';
 
 const CarttTable = ({ cart, handleQuantityChange, refetch }) => {
 
@@ -11,9 +12,31 @@ const CarttTable = ({ cart, handleQuantityChange, refetch }) => {
 
     const handleDelete = () => {
 
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You want to clear your cart collection!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes!'
+          }).then((result) => {
+            if (result.isConfirmed) {
 
-        deleteShoppingCart  ()
-        refetch()
+                deleteShoppingCart()
+                refetch()
+
+
+              Swal.fire(
+                'Deleted!',
+                'Your Cart has been deleted.',
+                'success'
+              )
+            }
+          })
+
+
+        
     }
     return (
         <div>

@@ -7,7 +7,6 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Home from './components/Home/Home/Home.jsx';
-import Collections from './components/pages/collections/collections.jsx';
 import ViewDetails from './components/pages/Details/ViewDetails.jsx';
 import Cart from './components/pages/Cart/Cart.jsx';
 import AuthProvider from './components/Providers/AuthProvider.jsx';
@@ -24,6 +23,13 @@ import {
 } from '@tanstack/react-query'
 import OrderDetails from './components/pages/checkOut/OrderDetails.jsx';
 import UserOrder from './components/pages/UserDetails/UserOrder.jsx';
+import Dashboard from './components/pages/Dashboard/Dashboard.jsx';
+import UserHome from './components/pages/Dashboard/UserHome.jsx';
+import Collections from './components/pages/collections/Collections.jsx';
+import AdminHome from './components/pages/Dashboard/Admin/AdminHome.jsx';
+import AddItems from './components/pages/Dashboard/Admin/AddItems.jsx';
+import ManageOrders from './components/pages/Dashboard/Admin/ManageOrders.jsx';
+import AllUsers from './components/pages/Dashboard/Admin/AllUsers.jsx';
 
 const queryClient = new QueryClient()
 
@@ -94,9 +100,62 @@ const router = createBrowserRouter([
 
         path : "/userOrder",
         element : <PrivateRoutes><UserOrder></UserOrder></PrivateRoutes>
+      },
+
+     
+    ],
+
+    
+  },
+
+  {
+    path : "/dashboard",
+    element : <Dashboard></Dashboard>,
+
+    children  : [
+
+      {
+        path : "myOrder",
+        element : <UserOrder></UserOrder>
+      },
+
+
+      {
+
+        path : "userHome",
+        element  : <UserHome></UserHome>
+      },
+
+      {
+
+        path : "myCart",
+        element : <Cart></Cart>
+      },
+      
+      {
+
+        path : "AdminHome",
+        element : <AdminHome></AdminHome>
+
+
+      },
+
+      {
+        path : "addItems",
+        element : <AddItems></AddItems>
+      },
+      {
+
+        path : "manageOrders",
+        element : <ManageOrders></ManageOrders>
+      },
+
+      {
+        path : "allUsers",
+        element : <AllUsers></AllUsers>
       }
     ]
-  },
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

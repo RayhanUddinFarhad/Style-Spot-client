@@ -5,6 +5,7 @@ import 'aos/dist/aos.css'; // You can also use <link> for styles
 import { Rating } from '@smastrom/react-rating'
 
 import '@smastrom/react-rating/style.css'
+import { FaHeart } from 'react-icons/fa';
 // ..
 AOS.init();
 
@@ -21,6 +22,8 @@ const Product = ({ data }) => {
           <p>{data.description}</p>
           <p className='text-red-600 font-bold'>Price : {data.price}</p>
           <div className="card-actions justify-end">
+
+
           <Rating
       style={{ maxWidth: 120 }}
       value={data.rating}
@@ -31,6 +34,8 @@ const Product = ({ data }) => {
           </div>
         </div>
       </Link>
+
+
     </div>
 
 

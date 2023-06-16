@@ -108,7 +108,7 @@ console.log(cart);
       ) : (
         <>
 
-          <h1 className='text-4xl font-bold text-red-500 my-5'>No Data available Here. Please Add Cart your product </h1>
+          <h1 className='text-4xl font-bold text-red-500 my-5'>No cart available here. </h1>
           <button><Link to="/collections" className='button-primary flex items-center'>Continue Shopping <FaArrowRight className='ml-5'></FaArrowRight></Link>
           </button>
         </>

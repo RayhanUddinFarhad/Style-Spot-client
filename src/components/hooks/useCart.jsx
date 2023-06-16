@@ -7,12 +7,23 @@ const useCart = () => {
     const { user } = useContext(AuthContext)
     const [cart, setCart] = useState([]); 
 
+    const token = localStorage.getItem ('access-Token');
+
 
     
   const { refetch, data: carts = [] } = useQuery({
     queryKey: ['carts'],
     queryFn: async () => {
-      const productsResponse = await fetch(`https://dress-house-server.vercel.app/products`);
+      const productsResponse = await fetch(`https://dress-house-server.vercel.app/products`, 
+
+      {
+        headers : {
+          authorization : `bearer ${token}`
+        }
+      }
+      );
+
+      
       const products = await productsResponse.json();
 
       const storedCart = getStoredCart();
@@ -35,7 +46,7 @@ const useCart = () => {
 
       setCart(newArray); 
 
-      return newArray;
+      return  newArray;
     },
   });
 

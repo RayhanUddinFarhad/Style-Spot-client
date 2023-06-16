@@ -52,7 +52,7 @@ const CheckOut = () => {
       else {
 
 
-        fetch (`http://localhost:3000/carts/`, {
+        fetch (`https://dress-house-server.vercel.app/carts`, {
 
         method : 'POST',
 
@@ -201,10 +201,10 @@ const CheckOut = () => {
 
 
                             </div>
-                            <p>Shipping & taxes calculated at checkout</p>
+                            <p className='text-sm text-success'>Shipping & taxes calculated at checkout</p>
 
 
-                            <button onClick={handleCartPost}  className={`button-primary`}>Order Now</button>
+                            <button onClick={handleCartPost}  className='btn btn-success text-white'>Order Now</button>
 
 
 

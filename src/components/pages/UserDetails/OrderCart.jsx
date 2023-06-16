@@ -1,36 +1,41 @@
 import React from 'react';
+import { FaHashtag, FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-const OrderCart = ({data}) => {
-    return (
-        <div>
-            <div class=" my-10 border ">
-  <div class="hero-content flex-col lg:flex-row-reverse">
-    <img src= {data.image} class=" w-52 rounded-lg " />
-    <div className='space-y-5'>
-      <h1 class="text-5xl font-bold">{data.name}</h1>
-      
-      <div className='flex justify-between'>
+const OrderCart = ({ data, index }) => {
 
-      <p className='text-xl font-bold text-red-500'>Quantity: X{data.quantity}</p>
-      <p className='text-xl font-bold text-red-500'>Price : ${data.price}</p>
+  return (
 
 
-      </div>
-      <p className='badge badge-success text-white'>On Processing</p>
-      <div>
-      <Link to= {`/details/${data._id}`} className='button-primary'>See Details</Link>
-      </div>
+    <tr className='font-bold'>
+      <th>
+
+       
 
 
-     
 
-    </div>
-    
-  </div>
-</div>
+      </th>
+      <td>
+        <div className="flex items-center space-x-3">
+          <div className="avatar">
+            <div className="mask mask-squircle w-12 h-12">
+              <img src={data.image} alt="Avatar Tailwind CSS Component" />
+            </div>
+          </div>
+          <div>
+            {data.name}
+          </div>
         </div>
-    );
+      </td>
+      <td>
+${data.price}        <br />
+        <span className="badge badge-ghost badge-sm"><FaTimes></FaTimes>{data.quantity}</span>
+      </td>
+      <td className='badge  badge-secondary text-white'>Pending</td>
+      
+    </tr>
+    
+  );
 };
 
 export default OrderCart;

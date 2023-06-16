@@ -1,65 +1,53 @@
 import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
-import banner1 from '../.././../../assets/images/man3.png'
-import banner2 from './../../../../assets/images/family1.png'
-import banner3 from '../../../../assets/images/banner3.png'
 
-import banner4 from '../../../../assets/images/girl1.png'
-
-import bannerbg from '../../../../assets/images/bannerbg.png'
-
+import shop1 from '../../../../assets/images/shop-1.jpg'
+import shop2 from '../../../../assets/images/shop-2.jpg'
+import shop3 from '../../../../assets/images/shop-3.jpg'
+import { Link } from 'react-router-dom';
+import { Typewriter } from 'react-simple-typewriter';
 
 const Banner = () => {
-
-  // const [category, setCategory] = useState([])
-
-  // const settings = {
-  //   dots: true,
-  //   infinite: true,
-  //   speed: 500,
-  //   slidesToShow: 1,
-  //   slidesToScroll: 1,
-  //   autoplay: true,
-
-
-  // };
-
-
-
 
   
 
 
+
+
+
+
+
   return (
-    <div className='lg:px-5 '>
-      <div className='h-full bg-[#F2F0FF]'   >
-        <div>
-          <div className='lg:flex  p-5 justify-around items-center'>
-            <div className='space-y-5'>
-              <p className='text-red-600 font-semibold'>Discover the Perfect Dress Collection for Your Family...</p>
-              <h1 className='text-5xl font-bold'>Explore the Latest Dress Trends in 2023</h1>
-              <p>Experience unparalleled style and elegance with our curated selection of dresses. Find the perfect outfit for any occasion that will make you stand out. </p>
-              <button className='bg-[#FB2E86] p-2 rounded text-white'>Shop Now</button>
-            </div>
+    
+
+    <div className='relative '>
 
 
-            <div>
-
-              <img className='object-contain' src={banner3} alt="" />
-            </div>
+      <img className=' w-full object-contain' src={shop1} alt="" />
 
 
 
 
+      <div className='absolute right-5 top-3 sm:top-1/2  lg:right-5 lg:top-1/2 lg:space-y-5 space-y-2 lg:w-auto w-48 sm:w-auto'>
 
+        <h1 className='lg:text-5xl sm:text-4xl text-xl text-gray-50 font-extrabold' style={{ margin: 'auto 0' }}>
+          Life is{' '}
+          <span className='text-transparent bg-gradient-to-r from-red-500 via-red-400 to-red-300 bg-clip-text font-extrabold lg:text-5xl' style={{ fontWeight: 'bold' }}>
+            <Typewriter
+              words={['Fashionable', 'Exciting', 'Inspiring']}
+              loop={3}
+              cursor
+              cursorStyle='_'
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={1000}
+            />
+          </span>
+        </h1>
 
-
-          </div>
-        </div>
-        <div>
-
-
-        </div>
+        <h1 className='lg:text-3xl text-white w-full'>
+          Discover Trendsetting  Fashion for  Every Occasion
+        </h1>
 
 
       </div>

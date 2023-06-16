@@ -3,6 +3,7 @@ import { addToDb, decreaseQuantity, removeFromDb } from '../../utilis/fakeDb';
 import { FaCross, FaMinus, FaMinusCircle, FaPlus, FaPlusCircle, FaTrash } from 'react-icons/fa';
 import cross from '../../assets/images/cross.png'
 import useCart from '../hooks/useCart';
+import Swal from 'sweetalert2';
 
 
 const CartItem = ({ data, handleQuantityChange }) => {
@@ -26,11 +27,29 @@ const CartItem = ({ data, handleQuantityChange }) => {
   };
 
   const handleDelete = (id) => {
-    removeFromDb (id)
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You want to delete this product!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        removeFromDb (id)
 
     refetch()
 
 
+        Swal.fire(
+          'Deleted!',
+          'Your product has been deleted.',
+          'success'
+        )
+      }
+    })
+    
     
 
 

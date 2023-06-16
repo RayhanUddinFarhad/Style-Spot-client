@@ -18,14 +18,14 @@ function App() {
 
       <div className='overflow-x-hidden'>
 
-        <div className='pb-32'>
+        <div className=''>
 
           <Navbar ></Navbar>
 
         </div>
 
 
-        <div className='lg:max-w-[1280px] mx-auto mb-20 md:min-h-[calc(100vh-341px)] '>
+        <div className='lg:max-w-[1280px] mx-auto mb-20 mt-20 md:min-h-[calc(100vh-341px)] '>
 
           <Outlet></Outlet>
 

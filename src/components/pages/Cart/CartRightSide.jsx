@@ -45,10 +45,10 @@ const CartRightSide = ({ total, grandTotal }) => {
 
 
           </div>
-          <p>Shipping & taxes calculated at checkout</p>
+          <p className='text-sm text-success'>Shipping & taxes calculated at checkout</p>
 
 
-          <Link  to='/checkOut' className='button-primary'>Proceed To Checkout</Link>
+          <Link  to='/checkOut' className='btn btn-success text-white'>Proceed To Checkout</Link>
 
 
 

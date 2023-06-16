@@ -8,9 +8,8 @@ import { updateProfile } from 'firebase/auth';
 const Register = () => {
 
   const {registerUser} = useContext(AuthContext)
-  const location = useLocation()
+ 
   const navigate = useNavigate()
-  const from = location.state?.from?.pathname || '/';
 
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const onSubmit = data => {
@@ -21,12 +20,28 @@ const Register = () => {
       const registered = res.user
       console.log(registered);
 
+      const userInfo = {name : registered.displayName, email : registered.email}
+
+
+      fetch  (`http://localhost:3000/users`, {
+        method : 'POST',
+
+        headers: { 'Content-Type' : 'application/json', },
+
+        body : JSON.stringify (userInfo)
+      })
+      .then (res => res.json())
+      .then (data => console.log(data));
+
       updateProfile (registered, {
 
         displayName : data.name
       })
 
-      navigate (from, { replace: true })
+      navigate ('/')
+
+
+
 
 
 
@@ -64,28 +79,26 @@ const Register = () => {
           <label className="label">
             <span className="label-text">Name</span>
           </label>
-          <input {...register("name")} type="text" placeholder="Name" className="input input-bordered" />
+          <input required {...register("name")} type="text" placeholder="Name" className="input input-bordered" />
         </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Email</span>
           </label>
-          <input type="email" placeholder="email" className="input input-bordered" {...register("email")} />
+          <input required type="email" placeholder="email" className="input input-bordered" {...register("email")} />
         </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Password</span>
           </label>
-          <input type="password" placeholder="password" className="input input-bordered" {...register("password")}/>
-          <label className="label">
-            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-          </label>
+          <input required type="password" placeholder="password" className="input input-bordered" {...register("password")}/>
+          
         </div>
         <div className="form-control mt-6">
-          <button className="button-primary">Login</button>
+          <button className="button-primary">Register</button>
         </div>
 
-        <p>Already have an account? <Link className='btn-link' to =  "/logIn">LogIn Now</Link></p>
+        <p>Already have an account? <Link className='btn-link' to =  "/logIn">Log In</Link></p>
       </form>
     </div>
   </div>
