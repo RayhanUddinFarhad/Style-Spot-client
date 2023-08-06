@@ -7,6 +7,8 @@ import shop3 from '../../../../assets/images/shop-3.jpg'
 import { Link } from 'react-router-dom';
 import { Typewriter } from 'react-simple-typewriter';
 import girl2 from '../../../../assets/images/girl2.png'
+import girl3 from '../../../../assets/images/girl-3.png'
+import girl4 from '../../../../assets/images/girl-4.png'
 import men3 from '../../../../assets/images/men3.png'
 import { FaMagnet, FaSearch } from 'react-icons/fa';
 
@@ -28,7 +30,7 @@ const Banner = () => {
 
 
 
-    <div className='relative md:min-h-[calc(100vh-452px)] bg-[#EEEFFB]'>
+    <div className='relative md:min-h-[calc(100vh-452px)] bg-[#e3ffe6]'>
       <svg className='w-10 left-20 bottom-20 absolute' viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
         <path fill="#FF0066" d="M42.5,0.2C42.5,21.8,21.3,43.5,0.2,43.5C-20.9,43.5,-41.7,21.8,-41.7,0.2C-41.7,-21.3,-20.9,-42.6,0.2,-42.6C21.3,-42.6,42.5,-21.3,42.5,0.2Z" transform="translate(100 100)" />
       </svg>
@@ -54,7 +56,7 @@ const Banner = () => {
 
           </div>
           <div className='h-full relative'>
-            <img className='w-full max-sm:h-auto max-sm:mt-8 lg:h-full lg:w-auto' src={girl2} alt="" />
+            <img className='w-full max-sm:h-auto max-w-md max-sm:mt-8 lg:h-full lg:w-auto' src={girl4} alt="" />
 
             <svg className='w-32 right-0 top-0 absolute' viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
         <path fill="#f7a082" d="M42.5,0.2C42.5,21.8,21.3,43.5,0.2,43.5C-20.9,43.5,-41.7,21.8,-41.7,0.2C-41.7,-21.3,-20.9,-42.6,0.2,-42.6C21.3,-42.6,42.5,-21.3,42.5,0.2Z" transform="translate(100 100)" />

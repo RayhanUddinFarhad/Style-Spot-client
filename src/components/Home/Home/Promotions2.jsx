@@ -3,7 +3,7 @@ import img from '../../../assets/images/promotion3.png'
 
 const Promotions2 = () => {
     return (
-        <div className='bg-[#F1F0FF] max-h-full w-screen lg:flex justify-around items-center p-2'>
+        <div className='bg-[#F1F0FF] max-h-full max-w-screen-2xl lg:flex justify-around items-center p-2'>
 
             <img className='h-96 ' src={img} alt="" />
 
