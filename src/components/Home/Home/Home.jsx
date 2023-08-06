@@ -5,6 +5,7 @@ import OrderOnline from './OrderOnline';
 import Trending from './Trending';
 import Promotions from './Promotions';
 import Featured from './Featured';
+import Feattures from './Features/Feattures';
 
 const Home = () => {
     
@@ -14,11 +15,15 @@ const Home = () => {
             <Banner></Banner>
             <OrderOnline></OrderOnline>
 
+            <Feattures></Feattures>
+
             <Trending></Trending>
 
             <Promotions></Promotions>
 
             <Featured></Featured>
+
+
 
 
 

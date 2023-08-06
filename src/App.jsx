@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Footer from './components/shared/Footer'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ComponentSize from './components/shared/ComponentSize'
 
 
 function App() {
@@ -25,14 +26,14 @@ function App() {
         </div>
 
 
-        <div className='lg:max-w-[1280px] mx-auto mb-20 mt-20 md:min-h-[calc(100vh-341px)] '>
+        <ComponentSize >
 
           <Outlet></Outlet>
 
 
 
 
-        </div>
+        </ComponentSize>
 
         <Footer></Footer>
 
