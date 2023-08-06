@@ -28,8 +28,7 @@ const Banner = () => {
 
 
 
-    <div className=' relative md:min-h-[calc(100vh-452px)] bg-[#e3ffe6]'>
-
+    <div className='relative md:min-h-[calc(100vh-452px)] bg-[#EEEFFB]'>
       <svg className='w-10 left-20 bottom-20 absolute' viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
         <path fill="#FF0066" d="M42.5,0.2C42.5,21.8,21.3,43.5,0.2,43.5C-20.9,43.5,-41.7,21.8,-41.7,0.2C-41.7,-21.3,-20.9,-42.6,0.2,-42.6C21.3,-42.6,42.5,-21.3,42.5,0.2Z" transform="translate(100 100)" />
       </svg>
@@ -38,24 +37,24 @@ const Banner = () => {
         <path fill="#43b97f" d="M42.5,0.2C42.5,21.8,21.3,43.5,0.2,43.5C-20.9,43.5,-41.7,21.8,-41.7,0.2C-41.7,-21.3,-20.9,-42.6,0.2,-42.6C21.3,-42.6,42.5,-21.3,42.5,0.2Z" transform="translate(100 100)" />
       </svg>
 
-      <svg className='w-20 left-[40%] top-16 absolute' viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <svg className='w-20 left-[40%] top-16 absolute lg:left-0 lg:top-0' viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
         <path fill="#c280d2" d="M42.5,0.2C42.5,21.8,21.3,43.5,0.2,43.5C-20.9,43.5,-41.7,21.8,-41.7,0.2C-41.7,-21.3,-20.9,-42.6,0.2,-42.6C21.3,-42.6,42.5,-21.3,42.5,0.2Z" transform="translate(100 100)" />
       </svg>
 
 
-      <div className=" w-full ">
+      <div className=" w-full max-sm:px-4 md:px-8 lg:px-16">
 
-        <div className='flex justify-center items-center mx-32 '>
+        <div className='max-sm:flex max-sm:flex-col max-sm:items-center lg:flex lg:flex-row lg:justify-center lg:items-center '>
 
 
-          <div className='space-y-5 w-[60%] '>
+          <div className='space-y-5 w-full max-sm:text-center lg:w-[60%] '>
             <p className='text-2xl whitespace-nowrap'>In this season, find the best 🔥</p>
             <h1 className='text-4xl font-bold '>Exclusive collection for everyone</h1>
-            <button className='button-primary whitespace-nowrap flex items-center'>Explore More <FaSearch className='ml-2'></FaSearch></button>
+            <button className='button-primary whitespace-nowrap flex items-center justify-center mx-auto lg:mx-0'>Explore More <FaSearch className='ml-2'></FaSearch></button>
 
           </div>
           <div className='h-full relative'>
-            <img className=' ' src={girl2} alt="" />
+            <img className='w-full max-sm:h-auto max-sm:mt-8 lg:h-full lg:w-auto' src={girl2} alt="" />
 
             <svg className='w-32 right-0 top-0 absolute' viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
         <path fill="#f7a082" d="M42.5,0.2C42.5,21.8,21.3,43.5,0.2,43.5C-20.9,43.5,-41.7,21.8,-41.7,0.2C-41.7,-21.3,-20.9,-42.6,0.2,-42.6C21.3,-42.6,42.5,-21.3,42.5,0.2Z" transform="translate(100 100)" />
@@ -66,6 +65,7 @@ const Banner = () => {
 
       </div>
     </div>
+
     // <div className='relative '>
 
 
