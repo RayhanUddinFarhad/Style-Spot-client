@@ -6,6 +6,7 @@ import Trending from './Trending';
 import Promotions from './Promotions';
 import Featured from './Featured';
 import Feattures from './Features/Feattures';
+import Promotions2 from './Promotions2';
 
 const Home = () => {
     
@@ -22,6 +23,8 @@ const Home = () => {
             <Promotions></Promotions>
 
             <Featured></Featured>
+
+            <Promotions2></Promotions2>
 
 
 
